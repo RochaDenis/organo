@@ -10,6 +10,8 @@ const Formulario = ({aoCadastrar, times}) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [nomeTime, setnomeTime] = useState('')
+    const [corTime, setcorTime] = useState('') 
 
     const aoSubmeter = (evento) => {
         evento.preventDefault()
@@ -49,6 +51,22 @@ const Formulario = ({aoCadastrar, times}) => {
                     valor={time}
                     aoAlterado={valor => setTime(valor)}/>
                 <Botao texto='Criar card' />
+            </form>
+            <form className="formulario" onSubmit={aoSubmeter}>
+                <h2>Preencha os dados para criar o time.</h2>
+                <CampoTexto
+                    obrigatorio
+                    label='Nome do Time'
+                    placeholder='Digite o nome do Time '
+                    valor={nomeTime}
+                    aoAlterado={valor => setnomeTime(valor)}/>
+                <CampoTexto
+                    obrigatorio
+                    label='Cor' 
+                    placeholder='Digite a cor do Time'
+                    valor={corTime}
+                    aoAlterado={valor => setcorTime(valor)}/>
+                <Botao texto='Criar time' />
             </form>
         </section>
     )
